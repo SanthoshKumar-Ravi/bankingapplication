@@ -1,0 +1,10 @@
+package com.bankingapplication.accountmanagement.service;
+
+import com.bankingapplication.accountmanagement.schemaobject.AccountDetailsResponseSo;
+import com.bankingapplication.accountmanagement.schemaobject.DepositRequestSchemaObject;
+import com.bankingapplication.accountmanagement.schemaobject.MoneyTransferRequestSchemaObject;
+
+public interface TransactionManagementService {
+    AccountDetailsResponseSo deposit(DepositRequestSchemaObject depositRequestSchemaObject);
+    AccountDetailsResponseSo transfer(MoneyTransferRequestSchemaObject moneyTransferRequestSchemaObject);
+}

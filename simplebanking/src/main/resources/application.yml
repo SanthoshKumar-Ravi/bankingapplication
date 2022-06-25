@@ -1,0 +1,18 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jpa:
+    database: MYSQL
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL5Dialect
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  datasource:
+    url: jdbc:mysql://localhost:3306/accountmanagement?createDatabaseIfNotExist=true&serverTimezone=Asia/Dubai
+    username: schoolmanagement
+    password: password
+    driver-class-name : com.mysql.cj.jdbc.Driver
+server:
+  port: 8086
