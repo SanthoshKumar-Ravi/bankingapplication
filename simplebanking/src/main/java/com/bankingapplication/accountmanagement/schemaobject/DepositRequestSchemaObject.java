@@ -1,5 +1,6 @@
 package com.bankingapplication.accountmanagement.schemaobject;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 @Data
@@ -8,6 +9,8 @@ import lombok.*;
 @ToString
 @Builder
 public class DepositRequestSchemaObject {
+    @ApiModelProperty(required = true)
     private String amountToBeDeposited;
+    @ApiModelProperty(required = true)
     private Long accountNo;
 }

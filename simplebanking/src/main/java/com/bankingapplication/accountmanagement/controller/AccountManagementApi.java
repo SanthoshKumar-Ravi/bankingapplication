@@ -21,7 +21,7 @@ public interface AccountManagementApi {
     ResponseEntity<AccountDetailsResponseSo> createAccount(@ApiParam(value = "Enter required details to create bank account" ,required=true )  @Valid @RequestBody AccountDetailsRequestSo accountDetailsRequestSo);
 
 
-    @ApiOperation(value = "API to fetch account Details", nickname = "Account Details Fetch API")
+    @ApiOperation(value = "API to fetch account details", nickname = "Account Details Fetch API")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "bank account details fetched successfully"),
             @ApiResponse(code = 400, message = "bad request") })

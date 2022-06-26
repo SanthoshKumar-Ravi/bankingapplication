@@ -10,8 +10,8 @@ spring:
       dialect: org.hibernate.dialect.MySQL5Dialect
       naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
   datasource:
-    url: jdbc:mysql://localhost:3306/accountmanagement?createDatabaseIfNotExist=true&serverTimezone=Asia/Dubai
-    username: schoolmanagement
+    url: jdbc:mysql://${dbhost:localhost}:3306/accountmanagement?createDatabaseIfNotExist=true&serverTimezone=Asia/Dubai
+    username: accountmanagement
     password: password
     driver-class-name : com.mysql.cj.jdbc.Driver
 server:
