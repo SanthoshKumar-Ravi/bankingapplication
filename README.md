@@ -52,6 +52,12 @@ docker-compose up
 ```
 Access the application by clicking the URL "http://localhost:8086!"
 
+### Commands to create user in mysql
+```
+CREATE USER 'accountmanagement'@'localhost' IDENTIFIED BY 'password';
+GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'accountmanagement'@'localhost' WITH GRANT OPTION;
+```
+
 #### Please note:
 1) Swagger URL - http://localhost:8086/swagger-ui.html#/ <br />
 2) I have added the postman collection with this repository to test the application from postman bankingapplication.postman_collection [bankingapplication.postman_collection](https://github.com/SanthoshKumar-Ravi/bankingapplication/blob/master/bankingapplication.postman_collection.json)
