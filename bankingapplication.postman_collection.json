@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "7e0a5497-474a-43c6-b2d0-7ee5ede0e058",
+		"name": "bankingapplication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account Creation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"name\",\r\n    \"age\":\"23\",\r\n    \"gender\":\"male\",\r\n    \"governmentIssuedUniqueId\":\"123459\",\r\n    \"monthlyIncome\":\"3444\",\r\n    \"accountType\":\"Savings\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8086/api/v1/account/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"account",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"accountNo\": 134564,\r\n\"amountToBeDeposited\":\"0.91\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8086/api/v1/transaction/deposit",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"transaction",
+						"deposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Details Fetch",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8086/api/v1/account/fetchDetails/134564",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"account",
+						"fetchDetails",
+						"134564"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Money Transfer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8086/api/v1/transaction/transfer",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"transaction",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
