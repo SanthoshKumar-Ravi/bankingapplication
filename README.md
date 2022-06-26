@@ -1,5 +1,5 @@
-# banking Application
-This Project has one microservices.
+# Banking Application
+This Project has one microservice.
 
 ### Accountmanagement:
 This service containers below list of API's.
@@ -51,4 +51,6 @@ docker-compose up
 ```
 Access the application by clicking the URL "http://localhost:8086!"
 
-I have added the postman collection with this repository to test the application from postman bankingapplication.postman_collection [bankingapplication.postman_collection](https://github.com/SanthoshKumar-Ravi/bankingapplication/blob/master/simplebanking/src/main/resources/application.yml)
+#### Please note:
+1) Swagger URL - http://localhost:8086/swagger-ui.html#/ <br />
+2) I have added the postman collection with this repository to test the application from postman bankingapplication.postman_collection [bankingapplication.postman_collection](https://github.com/SanthoshKumar-Ravi/bankingapplication/blob/master/bankingapplication.postman_collection.json)
