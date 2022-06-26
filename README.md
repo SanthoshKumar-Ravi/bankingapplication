@@ -15,6 +15,7 @@ This service containers below list of API's.
 ## Prerequiste tools to run the project:
 * Programming language -  Java 8
 * Build Tool -  gradle
+* database - mysql
 
 ## Deployment Steps without Docker:
 ### Clone the repository
