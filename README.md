@@ -58,7 +58,7 @@ CREATE USER 'accountmanagement'@'localhost' IDENTIFIED BY 'password';
 GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'accountmanagement'@'localhost' WITH GRANT OPTION;
 ```
 
-### Commands to create user in mysql
+### Logic to handle concurrency
 We have added version column for each entity to control the concurrent transactions.
 
 #### Please note:
