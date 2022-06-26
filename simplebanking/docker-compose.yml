@@ -1,0 +1,23 @@
+version: "1"
+services:
+  schoolmanagement:
+    build: .
+    restart: always
+    ports:
+      - 8086:8086
+    depends_on:
+      - mysql_db
+    environment:
+      dbhost: mysql_db
+    links:
+      - mysql_db:app_db
+  mysql_db:
+    image: "mysql:5.7"
+    restart: always
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: accountmanagement
+      MYSQL_USER: accountmanagement
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root
