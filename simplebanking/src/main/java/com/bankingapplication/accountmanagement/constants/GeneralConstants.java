@@ -12,4 +12,6 @@ public class GeneralConstants {
     public static final String ERR_SAME_ACCOUNT = "Both From and To Account should not be same";
     public static final String ERR_INSUFFICIENT_BALANCE = "Insufficient balance in account";
     public static final String ERR_ACC_NOT_EXIST = "Account Number doesnot exist to fetch details";
+    public static final String ERR_UNEXPECTED_ERROR = "Exception occured!! please retry";
+    public static final String ERR_CONCURRENT_EXCEPTION = "Concurrency detected!! please retry";
 }
