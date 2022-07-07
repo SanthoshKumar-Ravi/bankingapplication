@@ -9,10 +9,12 @@ import com.bankingapplication.accountmanagement.repository.TransactionRepository
 import com.bankingapplication.accountmanagement.schemaobject.AccountDetailsResponseSo;
 import com.bankingapplication.accountmanagement.schemaobject.DepositRequestSchemaObject;
 import com.bankingapplication.accountmanagement.schemaobject.MoneyTransferRequestSchemaObject;
+import com.bankingapplication.accountmanagement.schemaobject.TransactionSchemaObject;
 import com.bankingapplication.accountmanagement.service.TransactionManagementService;
 import com.bankingapplication.accountmanagement.validation.TransactionValidator;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.OptimisticLockException;
@@ -20,6 +22,8 @@ import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.bankingapplication.accountmanagement.constants.GeneralConstants.*;
 
@@ -84,6 +88,18 @@ public class TransactionManagementServiceImpl implements TransactionManagementSe
         }catch(OptimisticLockException optimisticLockException){
             throw new GenericException(ERR_CONCURRENT_EXCEPTION);
         }
+    }
+
+    @Override
+    public List<TransactionSchemaObject> fetchTransaction(Long accountNumber) {
+        List<Transactions> transactionsList = transactionRepository.findFirst10ByAccounts_AccountNoOrderByTransactionIdDesc(accountNumber);
+        List<TransactionSchemaObject> transactionSchemaObjectList = new ArrayList<>();
+        for(Transactions transactions : transactionsList){
+            TransactionSchemaObject transactionSchemaObject = new TransactionSchemaObject();
+            BeanUtils.copyProperties(transactions, transactionSchemaObject);
+            transactionSchemaObjectList.add(transactionSchemaObject);
+        }
+        return transactionSchemaObjectList;
     }
 
     private void createTransaction(BigDecimal amount, String remarks, String debitTransaction, String dateFormat, Accounts accounts) {

@@ -17,6 +17,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
+import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -94,6 +95,7 @@ public class AccountManagementServiceImplTest {
                 .governmentIssuedUniqueId("N34567")
                 .name("ABC")
                 .status(true)
+                .transactionsList(Collections.emptyList())
                 .build();
     }
 }

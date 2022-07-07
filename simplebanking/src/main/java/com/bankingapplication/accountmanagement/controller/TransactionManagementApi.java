@@ -3,14 +3,14 @@ package com.bankingapplication.accountmanagement.controller;
 import com.bankingapplication.accountmanagement.schemaobject.AccountDetailsResponseSo;
 import com.bankingapplication.accountmanagement.schemaobject.DepositRequestSchemaObject;
 import com.bankingapplication.accountmanagement.schemaobject.MoneyTransferRequestSchemaObject;
+import com.bankingapplication.accountmanagement.schemaobject.TransactionSchemaObject;
 import io.swagger.annotations.*;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Api(value="api/v1/transaction")
 @RequestMapping("api/v1/transaction")
@@ -28,4 +28,7 @@ public interface TransactionManagementApi {
             @ApiResponse(code = 400, message = "bad request") })
     @PostMapping(value = "/transfer", produces =  MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<AccountDetailsResponseSo> transfer(@ApiParam(value = "Enter required details to transfer the money" ,required=true )  @Valid @RequestBody MoneyTransferRequestSchemaObject moneyTransferRequestSchemaObject);
+
+    @GetMapping(value = "/{accountNumber}", produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<List<TransactionSchemaObject>> fetchTransaction(@PathVariable("accountNumber") Long accountNumber);
 }

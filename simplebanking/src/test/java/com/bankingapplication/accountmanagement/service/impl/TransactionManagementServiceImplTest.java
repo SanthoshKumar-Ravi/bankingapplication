@@ -9,6 +9,7 @@ import com.bankingapplication.accountmanagement.repository.TransactionRepository
 import com.bankingapplication.accountmanagement.schemaobject.AccountDetailsResponseSo;
 import com.bankingapplication.accountmanagement.schemaobject.DepositRequestSchemaObject;
 import com.bankingapplication.accountmanagement.schemaobject.MoneyTransferRequestSchemaObject;
+import com.bankingapplication.accountmanagement.schemaobject.TransactionSchemaObject;
 import com.bankingapplication.accountmanagement.validation.TransactionValidator;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,9 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 
 import static com.bankingapplication.accountmanagement.constants.GeneralConstants.CREDIT_TRANSACTION;
 import static com.bankingapplication.accountmanagement.constants.GeneralConstants.REMARKS_FOR_DEPOSIT;
@@ -103,7 +107,26 @@ public class TransactionManagementServiceImplTest {
         assertEquals(accountDetailsResponseSo.getBalance(), new BigDecimal("10"));
     }
 
+    @Test
+    public void givenAccountNumber_whenFetchingTransactions_thenShouldReturnTheTopTenTransactions(){
+        // Mock
+        Transactions transactions = getTransactions();
+        Mockito.when(transactionRepository.findTopTenTransactions(1L)).thenReturn(Arrays.asList(transactions));
+        // When
+        List<TransactionSchemaObject> transactionSchemaObjectList = transactionManagementServiceImpl.fetchTransaction(1L);
+        // Then
+        assertEquals(transactionSchemaObjectList.size(),1);
+    }
 
+    private Transactions getTransactions(){
+        return Transactions.builder()
+                .amount(new BigDecimal(10))
+                .transactionId(1L)
+                .remarks("Emergency Transfer")
+                .type("Credit")
+                .transactionDate(new Date().toString())
+                .build();
+    }
 
     private Accounts getAccounts(){
         return Accounts.builder()
